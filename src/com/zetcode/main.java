@@ -19,7 +19,6 @@ public class main {
 		Scanner scanner = new Scanner(System.in);
 		
 		
-		
 		System.out.print("Which state would you like?");
 		String state = scanner.nextLine();
 		
