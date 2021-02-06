@@ -11,14 +11,13 @@ public class main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
-		System.out.println("Hello world!");
-		System.out.println("test");
+	
 		
 		
 		
 		HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.covidtracking.com/v1/us/daily.json"))
+                .uri(URI.create("https://api.covidtracking.com/v1/states/ok/daily.json"))
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
