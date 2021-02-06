@@ -8,11 +8,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
-<<<<<<< HEAD
-=======
+
 
 import com.fasterxml.jackson.databind.ObjectMapper;
->>>>>>> Jaimin
+
 
 public class main {
 	
@@ -40,11 +39,7 @@ public class main {
 
         System.out.println(response.body());
         
-<<<<<<< HEAD
-=======
-       
-        
->>>>>>> Jaimin
+
         
         Data one = new Data();
         
