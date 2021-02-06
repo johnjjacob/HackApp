@@ -1,11 +1,16 @@
 package com.zetcode;
 
-public class Data {
+import java.io.IOException;
+import java.util.HashMap;
 
-	public Data(String name) {
-		
-		System.out.println(name);
-		
-	}
+public class Data {
 	
+	HashMap<String, String> dataSet = new HashMap<String, String>();
+	
+	public Data() { }
+	
+	public void setMap(String a, String b) {
+			
+		dataSet.put(a, b);
+	}
 }
