@@ -1,8 +1,8 @@
 package com.zetcode;
 
-public class State {
+public class Data {
 
-	public State(String name) {
+	public Data(String name) {
 		
 		System.out.println(name);
 		
