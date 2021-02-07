@@ -53,7 +53,7 @@ public class main {
 
 		abbrev.addActionListener((e) -> {
 			JOptionPane.showMessageDialog(frame,
-					"ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, ny, oh, ok, or, pa, pr, ri, sc, sd, tn, tx, ut, va, vi, vt, wa, wi, wv, wy");
+					"ALASKA = ak, ALABAMA = al, ARKANSAS = ar, AMERICAN SAMOA =  as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, ny, oh, ok, or, pa, pr, ri, sc, sd, tn, tx, ut, va, vi, vt, wa, wi, wv, wy");
 		});
 
 		search.addActionListener((e) -> {
