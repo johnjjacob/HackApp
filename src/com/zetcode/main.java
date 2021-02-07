@@ -22,9 +22,13 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+<<<<<<< HEAD
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+=======
+//import com.fasterxml.jackson.databind.ObjectMapper;
+>>>>>>> master
 
 
 public class main {
@@ -78,8 +82,13 @@ public class main {
         {
         	
         	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
+        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
         	{
                 System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        		if(!dataset.dataVal.get(i).equals("0")) {
+        			 System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        		}
+               
         	}
 
         }
