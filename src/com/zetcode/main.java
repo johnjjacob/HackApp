@@ -30,7 +30,7 @@ public class main {
 
 		JFrame frame = new JFrame("COVID-19 Area Data Finder");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1900, 300);
+		frame.setSize(1900, 350);
 
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("Enter State");
