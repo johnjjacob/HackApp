@@ -71,7 +71,7 @@ public class main {
 
 			boolean isState = false;
 			for (int s = 0; s < 50; ++s) {
-				if (state.equals(statelist[s])) {
+				if (state.equalsIgnoreCase(statelist[s])) {
 					isState = true;
 				}
 
