@@ -27,6 +27,16 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.MouseEvent;
+import org.eclipse.swt.events.MouseListener;
+import org.eclipse.swt.layout.RowData;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -34,8 +44,21 @@ public class main {
 	
 		public static String state;
 		public static  HttpResponse<String> response;
+		/**
+		 * Launch the application.
+		 * 
+		 * @param args
+		 */
+		
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
+		
+		try {
+			Window window = new Window();
+			window.open();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	    
 		JFrame frame = new JFrame("COVID-19 Area Data Finder");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -217,4 +240,96 @@ public class main {
 		
 		
 	}
+}
+
+public class Window implements MouseListener{
+
+	private String[] states = { "AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "HI", "IA", "ID", "IL",
+			"IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM",
+			"NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV",
+			"WY" };
+
+	
+
+	/**
+	 * Open the window.
+	 */
+	public void open() {
+
+		Display display = Display.getDefault();
+
+		int displayHeight = display.getPrimaryMonitor().getBounds().height;
+		int displayWidth = display.getPrimaryMonitor().getBounds().width;
+
+		Shell shell = new Shell();
+		shell.setLayout(new RowLayout(SWT.HORIZONTAL));
+		
+		Label lblChooseAState = new Label(shell, SWT.NONE);
+		lblChooseAState.setLayoutData(new RowData(155, 33));
+		lblChooseAState.setText("Choose A State");
+		
+		
+		Combo combo = new Combo(shell, SWT.DROP_DOWN | SWT.READ_ONLY);
+		
+		for(int i = 0; i < states.length; i++)
+		{
+			combo.add(states[i]);
+		}
+		
+		/*
+		 * predefined selection
+		 */
+//		combo.select(0);
+		
+		combo.addMouseListener(this);
+		
+		
+		shell.setSize(252, 56);
+
+		shell.setText("COVID Application");
+
+		shell.pack();
+
+		shell.open();
+		shell.layout();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch()) {
+				display.sleep();
+			}
+		}
+
+	}
+	
+	
+	/**
+	 * 
+	 */
+	@Override
+	public void mouseDoubleClick(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println(e.getSource());
+	}
+
+	/**
+	 * Mouse down event based action
+	 */
+	@Override
+	public void mouseDown(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println(e.getSource());
+		
+	}
+
+	/**
+	 * Mouse up event based action
+	 */
+	@Override
+	public void mouseUp(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println(e.getSource());
+	}
+	
+	
+	
+	
 }
