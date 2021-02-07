@@ -19,11 +19,14 @@ class GUI {
         panel.add(search);
 
         
-        JTextArea displayarea = new JTextArea();
 
-        
+        String data[][]={ {"101","Amit","670000"}};    
+        String column[]={"ID","NAME","SALARY"};         
+        JTable jt=new JTable(data,column);    
+        jt.setBounds(30,40,200,300);          
+        JScrollPane sp=new JScrollPane(jt);    
+        frame.add(sp);   
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.CENTER, displayarea);
         frame.setVisible(true);
     }
 }

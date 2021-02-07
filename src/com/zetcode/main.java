@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -29,7 +31,22 @@ public class main {
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 	    
+		JFrame frame = new JFrame("COVID-19 Area Data Finder");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 450);
 
+        JPanel panel = new JPanel(); 
+        JLabel label = new JLabel("Enter State");
+        JTextField input = new JTextField(15); 
+        JButton search = new JButton("Search");
+        
+        panel.add(label); 
+        panel.add(input);
+        panel.add(search);
+
+        
+
+      
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -67,8 +84,17 @@ public class main {
         }
         
         
-  
+
+        String data[][]={ {"101","Amit","670000"}};    
+        String column[]={"ID","NAME","SALARY"};         
+        JTable jt=new JTable(data,column);    
+        jt.setBounds(30,40,200,300);          
+        JScrollPane sp=new JScrollPane(jt);    
+        frame.add(sp);   
         
+        
+        frame.getContentPane().add(BorderLayout.SOUTH, panel);
+        frame.setVisible(true);
 	}
 	
 	
