@@ -30,7 +30,7 @@ public class main {
 		String state = scanner.nextLine();
 		
 		
-		String url = "https://api.covidtracking.com/v1/states/"+state+"/current.json";
+		String url = "https://api.covidtracking.com/v1/states/"+state+"/daily.csv";
 		
 		
 		HttpClient client = HttpClient.newHttpClient();
@@ -40,21 +40,47 @@ public class main {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println(response.body());
+      //  System.out.println(response.body());
         
         String rawData = response.body();
         
-        System.out.println(rawData);
+        Data dataset = new Data();
+        
+        read(rawData, dataset);
+        
+        for(int i = 0; i < dataset.header.size();i++)
+        {
+            System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+
+        }
+
+        
+	}
+	
+	
+	
+	public static void read(String data, Data d)
+	{
+		
+		
+		String[] values = data.split("\n");
+		String[] headers = values[0].split(",");
+		String[] vals = values[1].split(",");
 
 
-        
-//        Data one = new Data();
-//        
-//        HashMap<String,Object> result = new ObjectMapper().readValue(response.body(), HashMap.class);        
-//        
-        
-        
-        
+		
+		for(int i = 0; i < headers.length; i++)
+		{
+			d.header.put(i, headers[i]);
+		}
+		
+		for(int i = 0; i < vals.length; i++)
+		{
+			d.dataVal.put(i, vals[i]);
+		}
+		
+		
+		
 	}
 
 }
