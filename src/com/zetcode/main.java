@@ -1,5 +1,6 @@
 package com.zetcode;
 
+import java.awt.BorderLayout;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -12,6 +13,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,7 +28,28 @@ public class main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
-	
+	      JFrame frame = new JFrame("COVID-19 Area Data Finder");
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.setSize(500, 450);
+
+	        JPanel panel = new JPanel(); 
+	        JLabel label = new JLabel("Enter State");
+	        JTextField input = new JTextField(15); 
+	        JButton search = new JButton("Search");
+	        
+	        panel.add(label); 
+	        panel.add(input);
+	        panel.add(search);
+
+	        
+	        JTextArea displayarea = new JTextArea();
+
+	        
+	        frame.getContentPane().add(BorderLayout.SOUTH, panel);
+	        frame.getContentPane().add(BorderLayout.CENTER, displayarea);
+	        frame.setVisible(true);
+
+	    String test = input.getText(); 
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -50,10 +78,15 @@ public class main {
         
         for(int i = 0; i < dataset.header.size();i++)
         {
-            System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        	if(dataset.dataVal.get(i) != "")
+        	{
+                System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        	}
 
         }
-
+        
+        
+  
         
 	}
 	
