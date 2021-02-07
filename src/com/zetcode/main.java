@@ -2,18 +2,11 @@ package com.zetcode;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.io.IOException;
-import java.util.HashMap;
-
-import java.lang.Object;
-import java.util.HashMap;
-import java.util.Map;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class main {
 
