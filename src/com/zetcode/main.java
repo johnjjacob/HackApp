@@ -84,9 +84,38 @@ public class main {
         }
         
         
+        
+        
+        
+		String data[][] = new String[1][60];
+        String column[] = new String[60];
+        int j = 0;
+        
+        for(int i = 0; i < dataset.header.size();i++)
+        {
+        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
+        	{
+                column[j] = dataset.header.get(i);
+                j++;
+        	
+        	}
+        }
+        
+        j = 0;
+        
+         for(int i = 0; i < dataset.header.size();i++)
+         {
+            if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
+             {
+                 data[0][j] = dataset.dataVal.get(i);
+                  j++;
+             	
+            }
+         }
+        	
+        
 
-        String data[][]={ {"101","Amit","670000"}};    
-        String column[]={"ID","NAME","SALARY"};         
+                 
         JTable jt=new JTable(data,column);    
         jt.setBounds(30,40,200,300);          
         JScrollPane sp=new JScrollPane(jt);    
