@@ -1,5 +1,6 @@
 package com.zetcode;
 
+import java.awt.BorderLayout;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -12,6 +13,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,7 +28,8 @@ public class main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
-	
+	    
+
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -30,7 +38,7 @@ public class main {
 		String state = scanner.nextLine();
 		
 		
-		String url = "https://api.covidtracking.com/v1/states/"+state+"/daily.csv";
+		String url = "https://api.covidtracking.com/v1/states/"+state+"/current.csv";
 		
 		
 		HttpClient client = HttpClient.newHttpClient();
@@ -50,10 +58,16 @@ public class main {
         
         for(int i = 0; i < dataset.header.size();i++)
         {
-            System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        	
+        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
+        	{
+                System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        	}
 
         }
-
+        
+        
+  
         
 	}
 	
