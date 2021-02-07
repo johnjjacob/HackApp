@@ -53,7 +53,9 @@ public class main {
 
 		abbrev.addActionListener((e) -> {
 			JOptionPane.showMessageDialog(frame,
-					"ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, NEW YORK = ny, OHIO = oh, OKLAHOMA = ok, OREGON = or, PENNSYLVANIA = pa, PUERTO RICO = pr, RHODE ISLAND = ri, SOUTH CAROLINA = sc, SOUTH DAKOTA = sd, TENNESSEE = tn, TEXAS = tx, UTAH = ut, VIRGINIA = va, VIRGIN ISLANDS = vi, VERMONT = vt, WASHINGTON = wa, WISCONSIN = wi, WEST VIRGINIA = wv, WYOMING = wy");
+					"ALASKA = ak, ALABAMA = al, ARKANSAS = ar, AMERICAN SAMOA = as, ARIZONA = az, CALIFORNIA = ca, COLORADO = co, CONNECTICUT = ct, DISTRICT OF COLUMBIA = dc, DELAWARE = de, FLORIDA = fl,\n GEORGIA = ga, GUAM = gu, HAWAII = hi, IOWA = ia, IDAHO = id, ILLINOIS = il, INDIANA = in, KANSAS = ks, KENTUCKY = ky, LOUISIANA = la, MASSACHUSETTS = ma, MARYLAND = md, MAINE = me,\n MICHIGAN = mi, MINNESOTA = mn, MISSOURI = mo, NORTHERN MARIANA IS = mp, MISSISSIPPI = ms, MONTANA = mt, NORTH CAROLINA = nc, NORTH DAKOTA = nd, NEBRASKA = ne, NEW HAMPSHIRE = nh,\n NEW JERSEY = nj, NEW MEXICO = nm, NEVADA = nv, NEW YORK = ny, OHIO = oh, OKLAHOMA = ok, OREGON = or, PENNSYLVANIA = pa, PUERTO RICO = pr, RHODE ISLAND = ri, SOUTH CAROLINA = sc,\n SOUTH DAKOTA = sd, TENNESSEE = tn, TEXAS = tx, UTAH = ut, VIRGINIA = va, VIRGIN ISLANDS = vi, VERMONT = vt, WASHINGTON = wa, WISCONSIN = wi, WEST VIRGINIA = wv, WYOMING = wy");
+				
+
 		});
 
 		search.addActionListener((e) -> {
