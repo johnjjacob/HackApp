@@ -9,6 +9,9 @@ class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 450);
 
+        String column[] = {"ID","NAME","SALARY"};
+        String row[][] = {{"333", "Jaimin", "10000000"}};
+              
         JPanel panel = new JPanel(); 
         JLabel label = new JLabel("Enter State");
         JTextField input = new JTextField(15); 
@@ -19,11 +22,8 @@ class GUI {
         panel.add(search);
 
         
-        JTextArea displayarea = new JTextArea();
-
-        
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.CENTER, displayarea);
+        frame.getContentPane().add(BorderLayout.CENTER, jt);
         frame.setVisible(true);
     }
 }
