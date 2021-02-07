@@ -1,6 +1,8 @@
 package com.zetcode;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -18,6 +20,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -29,7 +32,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class main {
 	
-
+		public static String state;
+		public static  HttpResponse<String> response;
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
 	    
@@ -41,102 +45,152 @@ public class main {
         JLabel label = new JLabel("Enter State");
         JTextField input = new JTextField(15); 
         JButton search = new JButton("Search");
+        JButton abbrev = new JButton("Abbreviations");
         
         panel.add(label); 
         panel.add(input);
         panel.add(search);
+        panel.add(abbrev);
 
-        
-
-      
-		
-		Scanner scanner = new Scanner(System.in);
-		
-		
-		System.out.print("Which state would you like?");
-		String state = scanner.nextLine();
-		
-		
-		String url = "https://api.covidtracking.com/v1/states/"+state+"/current.csv";
-		
-		
-		HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .build();
-
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-      //  System.out.println(response.body());
-        
-        String rawData = response.body();
-        
-        Data dataset = new Data();
-        
-        read(rawData, dataset);
-        
-        for(int i = 0; i < dataset.header.size();i++)
-        {
-        	
-        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
-        	{
-                System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
-        	}
-
-        }
-        
-        
-        
-        
-       
-        
-        List<String> data = new ArrayList<>();
-        List<String> column = new ArrayList<>();        
-        int j = 0;
-        
-        for(int i = 0; i < dataset.header.size();i++)
-        {
-        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
-        	{
-                column.add(dataset.header.get(i));
-                j++;
-        	
-        	}
-        }
-        
-        String[] fcolumn = column.toArray(new String[j]);
-        
-        j = 0;
-        
-         for(int i = 0; i < dataset.header.size();i++)
-         {
-            if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
-             {
-                 data.add(dataset.dataVal.get(i));
-                  j++;
-             	
-            }
-         }
-         
-         String[][] fdata = new String[1][j];
-         
-         for(int p = 0; p < j; ++p) {
-        	 fdata[0][p] = data.get(p);
-       
-         }
-        	
-        
-
-                 
-        JTable jt=new JTable(fdata,fcolumn);    
-        jt.setBounds(30,40,200,300);          
-        JScrollPane sp=new JScrollPane(jt);    
-        frame.add(sp);   
-        
-        
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
         frame.setVisible(true);
+        
+        String[] statelist = {"ak", "al", "ar", "as", "az", "ca", "co", "ct", "dc", "de", "fl", "ga", "gu", "hi", "ia", "id", "il", "in", "ks", "ky", "la", "ma", "md", "me", "mi", "mn", "mo", "mp", "ms", "mt", "nc", "nd", "ne", "nh", "nj", "nm", "nv", "ny", "oh", "ok", "or", "pa", "pr", "ri", "sc", "sd", "tn", "tx", "um", "ut", "va", "vi", "vt", "wa", "wi", "wv", "wy" };
+        
+        
+        abbrev.addActionListener((e) -> {
+        	JOptionPane.showMessageDialog(frame,
+    			    "ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, ny, oh, ok, or, pa, pr, ri, sc, sd, tn, tx, um, ut, va, vi, vt, wa, wi, wv, wy");
+        });
+        
+        search.addActionListener((e) -> {
+        	state = input.getText();
+        	
+        	boolean isState = false;
+        	for(int s = 0; s < 50; ++s) {
+        		if(state.equals(statelist[s])) {
+        			isState = true;
+        		}
+        		
+        	}
+        	
+        	if(isState) {
+        	String url = "https://api.covidtracking.com/v1/states/"+state+"/current.csv";
+    		
+    		
+    		HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .build();
+
+           
+			try {
+				response = client.send(request, HttpResponse.BodyHandlers.ofString());
+			} catch (IOException | InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+          //  System.out.println(response.body());
+            
+            String rawData = response.body();
+            
+            Data dataset = new Data();
+            
+            read(rawData, dataset);
+            
+            for(int i = 0; i < dataset.header.size();i++)
+            {
+            	
+            	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
+            	{
+            		if(!dataset.dataVal.get(i).equals("0")) {
+            			 System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+            		}
+                   
+            	}
+
+            }
+            
+            
+            
+            
+           
+            
+            List<String> data = new ArrayList<>();
+            List<String> column = new ArrayList<>();        
+            int j = 0;
+            
+            for(int i = 0; i < dataset.header.size();i++)
+            {
+            	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
+            	{
+            		if(!dataset.dataVal.get(i).equals("0")) {
+
+                    column.add(dataset.header.get(i));
+                    j++;
+            		}
+            	}
+            }
+            
+            String[] fcolumn = new String[j];
+            
+            for(int m = 0; m < j; ++m) {
+            	
+            	fcolumn[m] = column.get(m);
+            	
+            }
+            
+            j = 0;
+            
+             for(int i = 0; i < dataset.header.size();i++)
+             {
+             	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
+                 {
+            		if(!dataset.dataVal.get(i).equals("0")) {
+
+                     data.add(dataset.dataVal.get(i));
+                      j++;
+            		}
+                }
+             }
+             
+             String[][] fdata = new String[1][j];
+             
+             for(int p = 0; p < j; ++p) {
+            	 fdata[0][p] = data.get(p);
+           
+             }
+            	
+            
+
+                     
+            JTable jt=new JTable(fdata,fcolumn);
+            jt.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            jt.setPreferredScrollableViewportSize(new Dimension(500, 70));
+            jt.setFillsViewportHeight(true);
+            //jt.setRowHeight(0, jt.getRowHeight() + 300);
+            jt.setRowHeight(jt.getRowHeight() + 300);
+            jt.setRowMargin(jt.getRowMargin() + 100);
+            //jt.setFont(new Font("Serif", Font.CENTER_BASELINE, 5));
+            JScrollPane sp=new JScrollPane(jt); 
+            frame.add(sp);
+        	}
+        	
+        	else {
+        		JOptionPane.showMessageDialog(frame,
+        			    "Please use a valid state abbreviation");
+        	}
+            frame.setVisible(true);
+			
+		});
+		
+		
+		
+        
+        frame.setVisible(true);
 	}
+	
 	
 	
 	
