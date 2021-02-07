@@ -23,7 +23,7 @@ import javax.swing.JTextField;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-public class Main {
+public class main {
 	
 
 	public static void main(String[] args) throws IOException, InterruptedException {
