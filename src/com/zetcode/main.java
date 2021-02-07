@@ -22,6 +22,8 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -45,7 +47,6 @@ public class main {
         panel.add(search);
 
         
-
       
 		
 		Scanner scanner = new Scanner(System.in);
@@ -87,15 +88,15 @@ public class main {
         
         
         
-		String data[][] = new String[1][60];
-        String column[] = new String[60];
+		String Rdata[][] = new String[1][60];
+        String Rcolumn[] = new String[60];
         int j = 0;
         
         for(int i = 0; i < dataset.header.size();i++)
         {
         	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
         	{
-                column[j] = dataset.header.get(i);
+                Rcolumn[j] = dataset.header.get(i);
                 j++;
         	
         	}
@@ -107,12 +108,29 @@ public class main {
          {
             if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
              {
-                 data[0][j] = dataset.dataVal.get(i);
+                 Rdata[0][j] = dataset.dataVal.get(i);
                   j++;
              	
             }
          }
         	
+         int firstNull = 0;
+         for(int i = 0; i < Rcolumn.length;i++)
+         {
+        	 if(Rcolumn[i] == null)
+        	 {
+        		 firstNull = i;
+        		 break;
+        	 }
+         }
+         
+         
+         
+         String data[][] = new String[1][firstNull];
+         String column[] = new String[firstNull];
+         System.arraycopy(Rcolumn, 0, column, 0, firstNull);
+         System.arraycopy(Rdata, 0, data, 0, firstNull);
+
         
 
                  
