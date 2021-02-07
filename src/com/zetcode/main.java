@@ -30,7 +30,7 @@ public class main {
 
 		JFrame frame = new JFrame("COVID-19 Area Data Finder");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 450);
+		frame.setSize(1000, 300);
 
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("Enter State");
@@ -48,12 +48,12 @@ public class main {
 
 		String[] statelist = { "ak", "al", "ar", "as", "az", "ca", "co", "ct", "dc", "de", "fl", "ga", "gu", "hi", "ia",
 				"id", "il", "in", "ks", "ky", "la", "ma", "md", "me", "mi", "mn", "mo", "mp", "ms", "mt", "nc", "nd",
-				"ne", "nh", "nj", "nm", "nv", "ny", "oh", "ok", "or", "pa", "pr", "ri", "sc", "sd", "tn", "tx", "um",
+				"ne", "nh", "nj", "nm", "nv", "ny", "oh", "ok", "or", "pa", "pr", "ri", "sc", "sd", "tn", "tx",
 				"ut", "va", "vi", "vt", "wa", "wi", "wv", "wy" };
 
 		abbrev.addActionListener((e) -> {
 			JOptionPane.showMessageDialog(frame,
-					"ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, ny, oh, ok, or, pa, pr, ri, sc, sd, tn, tx, um, ut, va, vi, vt, wa, wi, wv, wy");
+					"ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, ny, oh, ok, or, pa, pr, ri, sc, sd, tn, tx, ut, va, vi, vt, wa, wi, wv, wy");
 		});
 
 		search.addActionListener((e) -> {
