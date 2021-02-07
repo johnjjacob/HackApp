@@ -6,13 +6,14 @@ import java.util.HashMap;
 
 public class Data {
 	
-	HashMap<String, Integer> dataSet = new HashMap<String, Integer>();
+	HashMap<Integer, String> header = new HashMap<Integer, String>();
+	HashMap<Integer, String> dataVal = new HashMap<Integer, String>();
+
 	
 	public Data() { }
 	
 	public void setMap(String a, int b) {
 			
-		dataSet.put(a, b);
 	}
 	
 
