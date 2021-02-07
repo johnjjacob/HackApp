@@ -1,8 +1,11 @@
 package com.zetcode;
 
 import java.io.IOException;
+import java.util.HashMap;
+
 import java.lang.Object;
 import java.util.HashMap;
+import java.util.Map;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -26,7 +29,8 @@ public class main {
 		System.out.print("Which state would you like?");
 		String state = scanner.nextLine();
 		
-		String url = "https://api.covidtracking.com/v1/states/"+state+"/daily.json";
+		
+		String url = "https://api.covidtracking.com/v1/states/"+state+"/current.json";
 		
 		
 		HttpClient client = HttpClient.newHttpClient();
@@ -38,13 +42,16 @@ public class main {
 
         System.out.println(response.body());
         
+        String rawData = response.body();
+        
+        System.out.println(rawData);
+
 
         
-        Data one = new Data();
-        
-      //  one.dataSet =  new ObjectMapper().readValue(response.body(), HashMap.class);
-        
-        
+//        Data one = new Data();
+//        
+//        HashMap<String,Object> result = new ObjectMapper().readValue(response.body(), HashMap.class);        
+//        
         
         
         
