@@ -59,7 +59,7 @@ public class main {
         for(int i = 0; i < dataset.header.size();i++)
         {
         	
-        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
+        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
         	{
                 System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
         	}
