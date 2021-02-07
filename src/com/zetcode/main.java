@@ -78,9 +78,12 @@ public class main {
         for(int i = 0; i < dataset.header.size();i++)
         {
         	
-        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
+        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
         	{
-                System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        		if(!dataset.dataVal.get(i).equals("0")) {
+        			 System.out.println(dataset.header.get(i)+" "+dataset.dataVal.get(i));
+        		}
+               
         	}
 
         }
@@ -96,11 +99,13 @@ public class main {
         
         for(int i = 0; i < dataset.header.size();i++)
         {
-        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
+        	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
         	{
+        		if(!dataset.dataVal.get(i).equals("0")) {
+
                 column.add(dataset.header.get(i));
                 j++;
-        	
+        		}
         	}
         }
         
@@ -110,11 +115,13 @@ public class main {
         
          for(int i = 0; i < dataset.header.size();i++)
          {
-            if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 && i != 49 && i != 50 && i != 51 && i != 52 && i != 53)
+         	if(dataset.dataVal.get(i) != "" && i !=39 && i != 48 && i != 54 &&i != 40)
              {
+        		if(!dataset.dataVal.get(i).equals("0")) {
+
                  data.add(dataset.dataVal.get(i));
                   j++;
-             	
+        		}
             }
          }
          
