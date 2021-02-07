@@ -60,12 +60,13 @@ public class main {
 			state = input.getText();
 
 			boolean isState = false;
-			for (int s = 0; s < 50; ++s) {
+			for (int s = 0; s < statelist.length; s++) {
 				if (state.equalsIgnoreCase(statelist[s])) {
 					isState = true;
 				}
 
 			}
+			
 
 			if (isState) {
 				String url = "https://api.covidtracking.com/v1/states/" + state + "/current.csv";
@@ -153,6 +154,7 @@ public class main {
 			}
 
 			else {
+				
 				JOptionPane.showMessageDialog(frame, "Please use a valid state abbreviation");
 			}
 			frame.setVisible(true);
