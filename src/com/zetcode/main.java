@@ -53,7 +53,7 @@ public class main {
 
 		abbrev.addActionListener((e) -> {
 			JOptionPane.showMessageDialog(frame,
-					"ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, ny, oh, ok, or, pa, pr, ri, sc, sd, tn, tx, ut, va, vi, vt, wa, wi, wv, wy");
+					"ak, al, ar, as, az, ca, co, ct, dc, de, fl, ga, gu, hi, ia, id, il, in, ks, ky, la, ma, md, me, mi,\nmn, mo, mp, ms, mt, nc, nd, ne, nh, nj, nm, nv, NEW YORK = ny, OHIO = oh, OKLAHOMA = ok, OREGON = or, PENNSYLVANIA = pa, PUERTO RICO = pr, RHODE ISLAND = ri, SOUTH CAROLINA = sc, SOUTH DAKOTA = sd, TENNESSEE = tn, TEXAS = tx, UTAH = ut, VIRGINIA = va, VIRGIN ISLANDS = vi, VERMONT = vt, WASHINGTON = wa, WISCONSIN = wi, WEST VIRGINIA = wv, WYOMING = wy");
 		});
 
 		search.addActionListener((e) -> {
