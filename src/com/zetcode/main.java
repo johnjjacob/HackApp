@@ -28,28 +28,8 @@ public class main {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		// TODO Auto-generated method stub
-	      JFrame frame = new JFrame("COVID-19 Area Data Finder");
-	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        frame.setSize(500, 450);
+	    
 
-	        JPanel panel = new JPanel(); 
-	        JLabel label = new JLabel("Enter State");
-	        JTextField input = new JTextField(15); 
-	        JButton search = new JButton("Search");
-	        
-	        panel.add(label); 
-	        panel.add(input);
-	        panel.add(search);
-
-	        
-	        JTextArea displayarea = new JTextArea();
-
-	        
-	        frame.getContentPane().add(BorderLayout.SOUTH, panel);
-	        frame.getContentPane().add(BorderLayout.CENTER, displayarea);
-	        frame.setVisible(true);
-
-	    String test = input.getText(); 
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -58,7 +38,7 @@ public class main {
 		String state = scanner.nextLine();
 		
 		
-		String url = "https://api.covidtracking.com/v1/states/"+state+"/daily.csv";
+		String url = "https://api.covidtracking.com/v1/states/"+state+"/current.csv";
 		
 		
 		HttpClient client = HttpClient.newHttpClient();
